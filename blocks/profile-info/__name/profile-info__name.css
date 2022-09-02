@@ -1,0 +1,26 @@
+.profile-info__name {
+    margin: 0;
+    padding-bottom: 6px;/**паддинг добавлен для выравнивания имени пользователя и кнопки**/
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 48px;
+    color: #FFFFFF;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+@media screen and (max-width: 760px) {
+    .profile-info__name {
+        font-size: 30px;
+        line-height: 35px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .profile-info__name {
+        font-size: 27px;
+        line-height: 33px;
+        text-align: center;
+    }
+}
