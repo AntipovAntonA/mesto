@@ -24,3 +24,5 @@
 @import url(../blocks/element/__container-heading/element__container-heading.css);
 @import url(../blocks/element/__heading/element__heading.css);
 @import url(../blocks/element/__heart/element__heart.css);
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__text/footer__text.css);
