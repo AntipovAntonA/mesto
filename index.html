@@ -9,19 +9,19 @@
 </head>
 <body class="page">
     <header class="header">
-        <img src="./images/logo_mesto.svg" class="header__logo">
+        <img src="./images/logo_mesto.svg" class="header__logo" alt="Логотип">
         <div class="header__line"></div>
     </header>
     <article class="profile">
         <img src="images/avatar.png" alt="Аватар" class="profile__avatar">
         <div class="profile__profile-info">
             <h1 class="profile-info__name">Жак-Ив Кусто</h1>
-            <button type="button" class="profile-info__edit-button"></button>
+            <button type="button" class="profile-info__edit-button profile-info__edit-button_open-popup"></button>
             <p class="profile-info__about">Исследователь океанов</p>
         </div>
         <button type="button" class="profile__add-button"></button>
     </article>
-    <section class="elements">
+    <main class="elements">
         <article class="elements__element">
             <div class="element element__abakan"></div>
             <div class="element__container-heading">
@@ -64,18 +64,19 @@
                 <img src="images/Heart.svg" alt="Лайк" class="element__heart">
             </div>
         </article>
-    </section>
+    </main>
     <footer class="footer">
         <p class="footer__text">&copy; 2022 Mesto Russia</p>
     </footer>
-    <popup class="popup">
-        <img src="images/Close Icon.svg" alt="Закрыть форму" class="popup__close">
-        <form action="" class="popup__container">
+    <section class="popup">
+        <img src="images/CloseIcon.svg" alt="Закрыть форму" class="popup__close">
+        <form action="html/sendform" class="popup__container">
             <h2 class="popup__heading">Редактировать профиль</h2>
-            <input type="text" name="name" class="popup__input" required>
-            <input type="text" name="about" class="popup__input" required>
+            <input type="text" name="name" class="popup__input popup__input-name" value="Жак-Ив Кусто" required>
+            <input type="text" name="about" class="popup__input popup__input-about" value="Исследователь океанов" required>
             <button type="submit" class="popup__button">Сохранить</button>
         </form>
-    </popup>
+    </section>
+    <script src="./script/index.js"></script>
     </body>
 </html>
