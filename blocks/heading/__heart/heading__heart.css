@@ -1,0 +1,7 @@
+.heading__heart {
+    max-width: 19px;
+    padding-right: 15px;
+}
+.heading__heart:hover {
+    opacity: 0.5;
+}
