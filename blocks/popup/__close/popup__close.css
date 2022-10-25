@@ -1,6 +1,7 @@
 .popup__close {
     background-image: url(../../../images/CloseIcon.svg);
     background-repeat: no-repeat;
+    background-size: cover;
     border: none;
     font: inherit;
     color: inherit;
@@ -14,7 +15,8 @@
 }
 @media screen and (max-width: 600px) {
     .popup__close {
-        margin-left: 263px;
+        margin-left: 262px;
         width: 20px;
+        height: 20px;
     }
 }
