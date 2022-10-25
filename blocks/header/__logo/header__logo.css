@@ -10,3 +10,6 @@
         margin-bottom: 31px;
     }
 }
+.header__logo:hover{
+    opacity: 0.9;
+}

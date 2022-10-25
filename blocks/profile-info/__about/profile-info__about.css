@@ -1,7 +1,6 @@
 .profile-info__about {
     margin: 0;
     padding: 0;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -17,4 +16,7 @@
         line-height: 17px;
         text-align: center;
     }
+}
+.profile-info__about:hover{
+    opacity: 0.9;
 }

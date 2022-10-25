@@ -1,6 +1,14 @@
 .heading__heart {
-    max-width: 19px;
-    padding-right: 15px;
+    background-image: url(../../../images/Heart.svg);
+    background-repeat: no-repeat;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    padding-right: 35px;
+    align-self: center;
 }
 .heading__heart:hover {
     opacity: 0.5;

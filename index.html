@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mesto</title>
+    <title>Место</title>
     <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="page">
     <header class="header">
         <img src="./images/logo_mesto.svg" class="header__logo" alt="Логотип">
-        <div class="header__line"></div>
     </header>
-    <article class="profile">
+    <main class="content">
+    <section class="profile">
         <img src="images/avatar.png" alt="Аватар" class="profile__avatar">
         <div class="profile__profile-info profile-info">
             <h1 class="profile-info__name">Жак-Ив Кусто</h1>
@@ -20,63 +20,64 @@
             <p class="profile-info__about">Исследователь океанов</p>
         </div>
         <button type="button" class="profile__add-button"></button>
-    </article>
-    <main class="elements">
-        <article class="elements__element element">
-            <div class="element__img element__abakan"></div>
+    </section>
+    <ul class="elements">
+        <li class="elements__element element">
+            <img src="images/Abakan.jpg" alt="река Абакан" class="element__img">
             <div class="element__container-heading heading">
                 <h2 class="heading__name">река Абакан</h2>
-                <img src="images/Heart.svg" alt="Лайк" class="heading__heart">
+                <button class="heading__heart"></button>
             </div>
-        </article>
-        <article class="elements__element element">
-            <div class="element__img element__ges"></div>
+        </li>
+        <li class="elements__element element">
+            <img src="images/Ges.jpg" alt="СШГЭС" class="element__img">
             <div class="element__container-heading heading">
                 <h2 class="heading__name">СШГЭС</h2>
-                <img src="images/Heart.svg" alt="Лайк" class="heading__heart">
+                <button class="heading__heart"></button>
             </div>
-        </article>
-        <article class="elements__element element">
-            <div class="element__img element__tortuga"></div>
+        </li>
+        <li class="elements__element element">
+            <img src="images/Tortuga.jpg" alt="Тортуга" class="element__img">
             <div class="element__container-heading heading">
                 <h2 class="heading__name">Тортуга</h2>
-                <img src="images/Heart.svg" alt="Лайк" class="heading__heart">
+                <button class="heading__heart"></button>
             </div>
-        </article>
-        <article class="elements__element element">
-            <div class="element__img element__brusnika"></div>
+        </li>
+        <li class="elements__element element">
+            <img src="images/Brusnika.jpg" alt="брусника" class="element__img">
             <div class="element__container-heading heading">
                 <h2 class="heading__name">Брусника</h2>
-                <img src="images/Heart.svg" alt="Лайк" class="heading__heart">
+                <button class="heading__heart"></button>
             </div>
-        </article>
-        <article class="elements__element element">
-            <div class="element__img element__hakasiya"></div>
+        </li>
+        <li class="elements__element element">
+            <img src="images/Hakasiya.jpg" alt="Хакасия" class="element__img">
             <div class="element__container-heading heading">
                 <h2 class="heading__name">республика Хакасия</h2>
-                <img src="images/Heart.svg" alt="Лайк" class="heading__heart">
+                <button class="heading__heart"></button>
             </div>
-        </article>
-        <article class="elements__element element">
-            <div class="element__img element__ruchey"></div>
+        </li>
+        <li class="elements__element element">
+            <img src="images/Ruchey.jpg" alt="ручей Безымянный" class="element__img">
             <div class="element__container-heading heading">
                 <h2 class="heading__name">ручей Безымянный</h2>
-                <img src="images/Heart.svg" alt="Лайк" class="heading__heart">
+                <button class="heading__heart"></button>
             </div>
-        </article>
+        </li>
+    </ul>
     </main>
     <footer class="footer">
         <p class="footer__text">&copy; 2022 Mesto Russia</p>
     </footer>
-    <section class="popup">
-        <img src="images/CloseIcon.svg" alt="Закрыть форму" class="popup__close">
-        <form action="html/sendform" class="popup__container">
+    <div class="popup">
+        <button class="popup__close"></button>
+        <form action="html/sendform" class="popup__container" name="profile-form">
             <h2 class="popup__heading">Редактировать профиль</h2>
             <input type="text" name="name" class="popup__input popup__input-name" value="Жак-Ив Кусто" required>
             <input type="text" name="about" class="popup__input popup__input-about" value="Исследователь океанов" required>
             <button type="submit" class="popup__button">Сохранить</button>
         </form>
-    </section>
+    </div>
     <script src="./script/index.js"></script>
     </body>
 </html>

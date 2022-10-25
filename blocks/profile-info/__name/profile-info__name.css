@@ -1,7 +1,6 @@
 .profile-info__name {
     margin: 0;
     padding-bottom: 6px;/**паддинг добавлен для выравнивания имени пользователя и кнопки**/
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
     font-size: 42px;
@@ -23,4 +22,7 @@
         line-height: 33px;
         text-align: center;
     }
+}
+.profile-info__name:hover{
+    opacity: 0.9;
 }

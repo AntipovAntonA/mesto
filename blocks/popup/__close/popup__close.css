@@ -1,5 +1,13 @@
 .popup__close {
+    background-image: url(../../../images/CloseIcon.svg);
+    background-repeat: no-repeat;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
     margin-left: 500px;
+    width: 35px;
+    height: 35px;
 }
 .popup__close:hover {
     opacity: 0.6;

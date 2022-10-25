@@ -2,3 +2,6 @@
     border-radius: 50%;
     max-width: 120px;
 }
+.profile__avatar:hover{
+    opacity: 0.9;
+}
