@@ -9,3 +9,9 @@
         padding-top: 28px;
     }  
 }
+@media screen and (max-width: 320px) {
+    .header {
+        width: 320px;
+        padding-top: 28px;
+    }  
+}

@@ -1,30 +1,46 @@
+//находим блок popup
 const popup = document.querySelector('.popup');
-const openButton = document.querySelector('.profile-info__edit-button_open-popup');
+
+//находим кнопку редактирования профиля
+const openButton = document.querySelector('.profile-info__edit-button');
+
+//находим крестик
 const closeButton = document.querySelector('.popup__close');
 
+//находим элемент с именем профиля
+const editProfileName = document.querySelector('.profile-info__name');
 
+//находим элемент с информацией о профиле
+const editProfileAbout = document.querySelector('.profile-info__about');
+
+//находим инпут для ввода имени профиля
+const nameImput = document.querySelector('.popup__input-name');
+
+//находим инпут для ввода информации о профиле
+const jobInput = document.querySelector('.popup__input-about');
+
+//функция добавления модификатора
 const openPopup = function(){
-    popup.classList.add('popup__opened');
+    
+    popup.classList.add('popup_opened');
+    nameImput.value = editProfileName.textContent
+    jobInput.value = editProfileAbout.textContent
 }
 openButton.addEventListener('click', openPopup)
 
+//функция удаления модификатора
 const closePopup = function(){
-    popup.classList.remove('popup__opened');
-    formElement.reset();
+    popup.classList.remove('popup_opened');
 }
 closeButton.addEventListener('click', closePopup)
 
 const formElement = document.querySelector('.popup__container');
-const nameImput = document.querySelector('.popup__input-name');
-const jobInput = document.querySelector('.popup__input-about');
 
 function editProfile(evt){
     evt.preventDefault();
-  const heading = document.querySelector ('.profile-info__name');
-  heading.textContent = nameImput.value 
-  const aboutInfo = document.querySelector ('.profile-info__about');
-  aboutInfo.textContent = jobInput.value  
-
+    editProfileName.textContent = nameImput.value 
+    editProfileAbout.textContent = jobInput.value
+    closePopup()
 }
+
 formElement.addEventListener('submit', editProfile);
-formElement.addEventListener('submit', closePopup); 
