@@ -1,0 +1,27 @@
+.box__close {
+    background-image: url(../../../../images/CloseIcon.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top:-40px;
+    right: -40px;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+.box__close:hover {
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 600px) {
+    .box__close {
+        top: -36px;
+        right: 0;
+        width: 20px;
+        height: 20px;
+    }
+}

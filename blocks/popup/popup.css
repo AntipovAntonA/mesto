@@ -8,7 +8,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    display: none;
+    display: flex; 
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s, opacity 0.5s;
 }
 @media screen and (max-width: 600px) {
     .popup {

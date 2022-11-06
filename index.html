@@ -22,54 +22,22 @@
         <button type="button" class="profile__add-button" aria-label="Добавить"></button>
     </section>
     <ul class="elements">
-        <li class="elements__element element">
-            <img src="images/Abakan.jpg" alt="река Абакан" class="element__img">
-            <div class="element__container-heading heading">
-                <h2 class="heading__name">река Абакан</h2>
-                <button type="button" class="heading__heart" aria-label="Лайк"></button>
-            </div>
-        </li>
-        <li class="elements__element element">
-            <img src="images/Ges.jpg" alt="СШГЭС" class="element__img">
-            <div class="element__container-heading heading">
-                <h2 class="heading__name">СШГЭС</h2>
-                <button type="button" class="heading__heart" aria-label="Лайк" ></button>
-            </div>
-        </li>
-        <li class="elements__element element">
-            <img src="images/Tortuga.jpg" alt="Тортуга" class="element__img">
-            <div class="element__container-heading heading">
-                <h2 class="heading__name">Тортуга</h2>
-                <button type="button" class="heading__heart" aria-label="Лайк"></button>
-            </div>
-        </li>
-        <li class="elements__element element">
-            <img src="images/Brusnika.jpg" alt="брусника" class="element__img">
-            <div class="element__container-heading heading">
-                <h2 class="heading__name">Брусника</h2>
-                <button type="button" class="heading__heart" aria-label="Лайк"></button>
-            </div>
-        </li>
-        <li class="elements__element element">
-            <img src="images/Hakasiya.jpg" alt="Хакасия" class="element__img">
-            <div class="element__container-heading heading">
-                <h2 class="heading__name">республика Хакасия</h2>
-                <button type="button" class="heading__heart" aria-label="Лайк"></button>
-            </div>
-        </li>
-        <li class="elements__element element">
-            <img src="images/Ruchey.jpg" alt="ручей Безымянный" class="element__img">
-            <div class="element__container-heading heading">
-                <h2 class="heading__name">ручей Безымянный</h2>
-                <button type="button" class="heading__heart" aria-label="Лайк"></button>
-            </div>
-        </li>
+        <template class="elements_template">
+            <li class="elements__element element">
+                <img src="" alt="" class="element__img">
+                <button type="button" aria-label="Удалить" class="element__delete"></button>
+                <div class="element__container-heading heading">
+                    <h2 class="heading__name"></h2>
+                    <button type="button" class="heading__heart" aria-label="Лайк"></button>
+                </div>
+            </li>
+        </template>
     </ul>
     </main>
     <footer class="footer">
         <p class="footer__text">&copy; 2022 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <div class="popup" id="first">
         <form action="html/sendform" class="popup__container" name="profile-form">
             <button type="button" class="popup__close" aria-label="Закрыть"></button>
             <h2 class="popup__heading">Редактировать профиль</h2>
@@ -77,6 +45,22 @@
             <input type="text" name="about" class="popup__input popup__input-about" value="Исследователь океана" required>
             <button type="submit" class="popup__button">Сохранить</button>
         </form>
+    </div>
+    <div class="popup" id="second">
+        <form action="html/sendform" class="popup__container" name="card-form">
+            <button type="button" class="popup__close" aria-label="Закрыть"></button>
+            <h2 class="popup__heading">Новое место</h2>
+            <input placeholder="Название" type="text" name="name" class="popup__input popup__input-name" value="" required>
+            <input placeholder="Ссылка на картинку" type="text" name="about" class="popup__input popup__input-about" value="" required>
+            <button type="submit" class="popup__button">Создать</button>
+        </form>
+    </div>
+    <div class="popup" id="third">
+        <div class="popup__box">
+            <button type="button" class="box__close"></button>
+            <img src="#" alt="" class="box__image">
+            <p class="box__signature"></p>
+        </div>
     </div>
     <script src="./script/index.js"></script>
     </body>
