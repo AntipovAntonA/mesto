@@ -37,31 +37,32 @@
     <footer class="footer">
         <p class="footer__text">&copy; 2022 Mesto Russia</p>
     </footer>
-    <div class="popup" id="first">
-        <form action="html/sendform" class="popup__container" name="profile-form">
-            <button type="button" class="popup__close" aria-label="Закрыть"></button>
+    <div class="popup popup_type_profile">
+        <form action="html/sendform" class="popup__container popup__container_type_profile" name="profile-form">
+            <button type="button" class="popup__close popup__close_type_profile" aria-label="Закрыть"></button>
             <h2 class="popup__heading">Редактировать профиль</h2>
-            <input type="text" name="name" class="popup__input popup__input-name" value="Жак-Ив Кусто" required>
-            <input type="text" name="about" class="popup__input popup__input-about" value="Исследователь океана" required>
+            <input type="text" name="name" class="popup__input popup__input_type_name" value="Жак-Ив Кусто" required>
+            <input type="text" name="about" class="popup__input popup__input_type_about" value="Исследователь океана" required>
             <button type="submit" class="popup__button">Сохранить</button>
         </form>
     </div>
-    <div class="popup" id="second">
-        <form action="html/sendform" class="popup__container" name="card-form">
-            <button type="button" class="popup__close" aria-label="Закрыть"></button>
+    <div class="popup popup_type_card-add">
+        <form action="html/sendform" class="popup__container popup__container_type_card-add" name="card-form">
+            <button type="button" class="popup__close popup__close_type_card-add" aria-label="Закрыть"></button>
             <h2 class="popup__heading">Новое место</h2>
-            <input placeholder="Название" type="text" name="name" class="popup__input popup__input-name" value="" required>
-            <input placeholder="Ссылка на картинку" type="text" name="about" class="popup__input popup__input-about" value="" required>
+            <input placeholder="Название" type="text" name="name" class="popup__input popup__input_type_name" value="" required>
+            <input placeholder="Ссылка на картинку" type="text" name="about" class="popup__input popup__input_type_about" value="" required>
             <button type="submit" class="popup__button">Создать</button>
         </form>
     </div>
-    <div class="popup" id="third">
+    <div class="popup popup_type_picture">
         <div class="popup__box box">
             <button type="button" class="box__close"></button>
             <img src="#" alt="" class="box__image">
             <p class="box__signature"></p>
         </div>
     </div>
+    <script src="./script/cards.js"></script>
     <script src="./script/index.js"></script>
     </body>
 </html>
