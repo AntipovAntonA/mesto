@@ -40,6 +40,27 @@ function closeWindowModal (windowModal) {
   windowModal.classList.remove('popup_opened');
 }
 
+//Закрытие попапа по клику вне области формы
+const closePopupClickOverlay = (event) => {
+  //console.log(event.target, event.currentTarget)
+  if (event.target !== event.currentTarget) {
+    return;
+  }
+  closeWindowModal(popupTypeProfile);
+  closeWindowModal(popupTypePicture);
+  closeWindowModal(popupCards);
+}
+//Закрытие попапов по клавише Esc
+document.addEventListener('keydown', function(evt){
+  if (evt.key === 'Escape'){
+    closeWindowModal(popupTypeProfile);
+    closeWindowModal(popupTypePicture);
+    closeWindowModal(popupCards); 
+  }
+})
+
+popupTypeProfile.addEventListener('click', closePopupClickOverlay)
+
 //заполнение полей редактирования профиля, плюс вызов функции открытия попапа (добавление модификатора)
 function openProfilePopup () {
     nameImput.value = nameProfileEdit.textContent;
@@ -116,6 +137,8 @@ const imageCardHandler = (event) => {
   openWindowModal(popupTypePicture);
 };
 
+popupTypePicture.addEventListener('click', closePopupClickOverlay)
+
 const setEventListeners = (elementListener) =>{
 
   const buttonDeleteCard = elementListener.querySelector('.element__delete');
@@ -157,6 +180,8 @@ const cardsButtonClose = popupCards.querySelector('.popup__close');
 
 const buttonSubmitPopupTypeCardAdd = popupCards.querySelector('.popup__button');
 
+popupCards.addEventListener('click', closePopupClickOverlay)
+
 //функция добавления модификатора
 const openCardsPopup = function(){
     
@@ -186,4 +211,3 @@ const data = {
   renderCard(data);
   closeCardsPopap();
 });
-
