@@ -12,7 +12,6 @@ const checkImputValidity = (inputElementPopup) => {
     }
 };
 
-
 const showInputError = (errorElement, errorMessage) => {
     errorElement.textContent = errorMessage;
     errorElement.classList.add(selectors.errorClass);
@@ -31,7 +30,8 @@ const hideRedLineInputError = (inputElementForm) => {
 }
 
 
-const toggleButtonInput = (inputList, buttonElement, selectors) => {
+
+const toggleButtonState = (inputList, buttonElement, selectors) => {
     const hasInvalidInput = inputList.some(inputElementPopup => !inputElementPopup.validity.valid);
 
     if (hasInvalidInput) {
@@ -43,19 +43,23 @@ const toggleButtonInput = (inputList, buttonElement, selectors) => {
     }
 }
 
+
+
+
 const setInputList = (formElement, selectors) => {
     const inputList = Array.from(formElement.querySelectorAll(selectors.inputSelector));
     const buttonSubmit = formElement.querySelector(selectors.submitButtonSelector);
 
-    toggleButtonInput(inputList, buttonSubmit, selectors)
+    toggleButtonState(inputList, buttonSubmit, selectors)
 
     inputList.forEach(inputElementPopup => {
     inputElementPopup.addEventListener('input', () => {
         checkImputValidity(inputElementPopup)
-        toggleButtonInput(inputList, buttonSubmit, selectors)
+        toggleButtonState(inputList, buttonSubmit, selectors)
     })
 })
 }
+
 
 
 const enableValidation = (selectors) => {
@@ -65,6 +69,7 @@ formList.forEach(formElement => {
     setInputList(formElement, selectors);
 })
 }
+
 
 const selectors = ({
     formSelector: '.popup__section',

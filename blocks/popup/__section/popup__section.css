@@ -2,7 +2,6 @@
 width: 358px;
 height: 45px;
 }
-
 @media screen and (max-width: 600px) {
     .popup__section {
         width: 238px;

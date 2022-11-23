@@ -29,15 +29,27 @@ const nameImputCardPopap = popupCards.querySelector('.popup__input_type_name');
 //находим инпут для ввода ссылки на изображение
 const linkImputCardPopap = popupCards.querySelector('.popup__input_type_about');
 
+//Закрытие попапов по клавише Esc
+function closePopupByClickEsc (event) {
+  if (event.key === 'Escape') {
+    closeWindowModal(popupTypeProfile);
+    closeWindowModal(popupTypePicture);
+    closeWindowModal(popupCards); 
+    return
+  }
+}
+
 //Универсальная функция открытия попапа
 
 function openWindowModal (windowModal) {
   windowModal.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupByClickEsc)
 }
 
 //Универсальная функция закрытия попапа
 function closeWindowModal (windowModal) {
   windowModal.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupByClickEsc)
 }
 
 //Закрытие попапа по клику вне области формы
@@ -46,18 +58,8 @@ const closePopupClickOverlay = (event) => {
   if (event.target !== event.currentTarget) {
     return;
   }
-  closeWindowModal(popupTypeProfile);
-  closeWindowModal(popupTypePicture);
-  closeWindowModal(popupCards);
+  closeWindowModal(event.target);
 }
-//Закрытие попапов по клавише Esc
-document.addEventListener('keydown', function(evt){
-  if (evt.key === 'Escape'){
-    closeWindowModal(popupTypeProfile);
-    closeWindowModal(popupTypePicture);
-    closeWindowModal(popupCards); 
-  }
-})
 
 popupTypeProfile.addEventListener('click', closePopupClickOverlay)
 
@@ -66,6 +68,7 @@ function openProfilePopup () {
     nameImput.value = nameProfileEdit.textContent;
     jobInput.value = profileAboutEdit.textContent;
     openWindowModal(popupTypeProfile);
+
 }
 //навешиваем событие клик на кнопку открытия попапа (редактирование профиля)
 buttonOpenProfilePopup.addEventListener('click', openProfilePopup)
@@ -128,7 +131,7 @@ const imageBigPopup = popupTypePicture.querySelector('.box__image');
 
 const headingBigPopup = popupTypePicture.querySelector('.box__signature');
 
-const imageCardHandler = (event) => {
+const showBigCard = (event) => {
   const target = event.target;
   const cardElementCurrent = target.closest('.element');
   const imageCardElementCurrent = cardElementCurrent.querySelector('.element__img');
@@ -151,7 +154,7 @@ const setEventListeners = (elementListener) =>{
 
   const buttonImageCard = elementListener.querySelector('.element__img');
 
-  buttonImageCard.addEventListener('click', imageCardHandler);
+  buttonImageCard.addEventListener('click', showBigCard);
 }
 //функция добавления карточки
 const renderCard = (element) =>{
@@ -182,12 +185,18 @@ const buttonSubmitPopupTypeCardAdd = popupCards.querySelector('.popup__button');
 
 popupCards.addEventListener('click', closePopupClickOverlay)
 
+function disabledButtonPopup () {
+  buttonSubmitPopupTypeCardAdd.setAttribute('disabled', true);
+  buttonSubmitPopupTypeCardAdd.classList.add('popup__button_inactive');
+}
+
 //функция добавления модификатора
 const openCardsPopup = function(){
     
   openWindowModal(popupCards);
-  //nameImputCardPopap.value = nameImputCardPopap.textContent;
-  //linkImputCardPopap.value = linkImputCardPopap.textContent;
+  nameImputCardPopap.value = nameImputCardPopap.textContent;
+  linkImputCardPopap.value = linkImputCardPopap.textContent;
+  disabledButtonPopup ();
 
 }
 cardsButtonOpen.addEventListener('click', openCardsPopup)
@@ -204,7 +213,7 @@ const formAddCards = popupCards.querySelector('.popup__container');
 formAddCards.addEventListener('submit', (event) =>{
   event.preventDefault();
 
-const data = {
+  const data = {
   name: nameImputCardPopap.value,
   link: linkImputCardPopap.value
 };
