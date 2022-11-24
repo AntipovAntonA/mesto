@@ -1,5 +1,5 @@
 //находим блок popup
-const windowModal = document.querySelector('.popup');
+const windowModal = document.querySelectorAll('.popup');
 
 const popupTypeProfile = document.querySelector('.popup_type_profile');
 
@@ -32,13 +32,11 @@ const linkImputCardPopap = popupCards.querySelector('.popup__input_type_about');
 //Закрытие попапов по клавише Esc
 function closePopupByClickEsc (event) {
   if (event.key === 'Escape') {
-    closeWindowModal(popupTypeProfile);
-    closeWindowModal(popupTypePicture);
-    closeWindowModal(popupCards); 
+    const popupOpenNow = document.querySelector('.popup_opened');
+    closeWindowModal(popupOpenNow);
     return
   }
 }
-
 //Универсальная функция открытия попапа
 
 function openWindowModal (windowModal) {
@@ -104,7 +102,7 @@ const elements = document.querySelector('.elements');
 //функция создания карточки
 const createCard = (element) => {
 
-  const elementCard = document.querySelector('.elements_template').content.cloneNode(true);
+  const elementCard = elementTemplate.content.cloneNode(true);
 
   elementCard.querySelector('.element__img').src = element.link;
   elementCard.querySelector('.heading__name').textContent = element.name;
@@ -174,8 +172,6 @@ const closePopupTypePicture = function(){
 };
 buttonClosePopupTypePicture.addEventListener('click', closePopupTypePicture);
 
-
-
 //находим кнопку добавления карточки
 const cardsButtonOpen = document.querySelector('.profile__add-button');
 
@@ -184,11 +180,6 @@ const cardsButtonClose = popupCards.querySelector('.popup__close');
 const buttonSubmitPopupTypeCardAdd = popupCards.querySelector('.popup__button');
 
 popupCards.addEventListener('click', closePopupClickOverlay)
-
-function disabledButtonPopup () {
-  buttonSubmitPopupTypeCardAdd.setAttribute('disabled', true);
-  buttonSubmitPopupTypeCardAdd.classList.add('popup__button_inactive');
-}
 
 //функция добавления модификатора
 const openCardsPopup = function(){

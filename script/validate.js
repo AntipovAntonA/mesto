@@ -29,21 +29,21 @@ const hideRedLineInputError = (inputElementForm) => {
     inputElementForm.classList.remove(selectors.redLineInputError);
 }
 
-
+function disabledButtonPopup () {
+    buttonSubmitPopupTypeCardAdd.setAttribute('disabled', true);
+    buttonSubmitPopupTypeCardAdd.classList.add('popup__button_inactive');
+  }
 
 const toggleButtonState = (inputList, buttonElement, selectors) => {
     const hasInvalidInput = inputList.some(inputElementPopup => !inputElementPopup.validity.valid);
 
     if (hasInvalidInput) {
-        buttonElement.setAttribute('disabled', true)
-        buttonElement.classList.add(selectors.inactiveButtonClass)
+        disabledButtonPopup ()
     } else {
         buttonElement.removeAttribute('disabled')
         buttonElement.classList.remove(selectors.inactiveButtonClass)
     }
 }
-
-
 
 
 const setInputList = (formElement, selectors) => {
