@@ -1,5 +1,5 @@
-import {selectors} from './const.js'
-import {disabledButtonPopup} from './utils.js'
+import {selectors, buttonSubmitPopupTypeCardAdd} from './constants.js'
+
 
 export default class FormValidate {
     constructor (selectors, formElement) {
@@ -81,5 +81,12 @@ export default class FormValidate {
         this._setInputList(formElement, selectors);
     })
     }
+
+ 
     
 }
+   //функция добавления модификатора
+   export function disabledButtonPopup () {
+    buttonSubmitPopupTypeCardAdd.setAttribute('disabled', true);
+    buttonSubmitPopupTypeCardAdd.classList.add('popup__button_inactive');
+  };

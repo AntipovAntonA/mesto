@@ -1,25 +1,22 @@
-import {popupTypePicture} from './const.js'
+import {popupTypePicture} from './constants.js'
 import {closePopupByClickEsc} from './utils.js'
 
 export default class Card {
-    constructor (name, link) {
-            this._name = name;
-            this._limk = link;
+    constructor (data, cardSelector) {
+            this._data = data;
+            this._cardSelector = cardSelector;
     }
         _getElement () {
-            const elementCard = document
-            .querySelector('.elements_template')
-            .content
-            .cloneNode(true)
-            .children[0];
+            const elementCard = this._cardSelector.content.cloneNode(true).children[0];
             return elementCard;
+           
         }
         generateCard () {
             this._element = this._getElement();
             this._setEventListeners ();
-            this._element.querySelector('.element__img').src = this._limk;
-            this._element.querySelector('.heading__name').textContent = this._name;
-            this._element.querySelector('.element__img').alt = this._name;
+            this._element.querySelector('.element__img').src = this._data.link;
+            this._element.querySelector('.heading__name').textContent = this._data.name;
+            this._element.querySelector('.element__img').alt = this._data.name;
             return this._element;
         }
         _setEventListeners () {

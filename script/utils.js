@@ -1,10 +1,10 @@
-import {nameImput, nameProfileEdit, profileAboutEdit, jobInput, buttonSubmitPopupTypeCardAdd, popupTypeProfile, popupTypePicture, popupCards, 
-nameImputCardPopap, linkImputCardPopap, buttonSubmitPopup} from './const.js'
-
+import {nameImput, nameProfileEdit, profileAboutEdit, jobInput, popupTypeProfile, popupTypePicture, popupCards, 
+nameImputCardPopap, linkImputCardPopap, buttonSubmitPopup, buttonEsc} from './constants.js'
+import {disabledButtonPopup} from './FormValidate.js'
 
 //Закрытие попапов по клавише Esc
 export function closePopupByClickEsc (event) {
-    if (event.key === 'Escape') {
+    if (event.key === buttonEsc) {
       const popupOpenNow = document.querySelector('.popup_opened');
       closeWindowModal(popupOpenNow);
       return
@@ -54,13 +54,6 @@ export function editProfile(evt){
 export const closePopupTypePicture = function(){
   closeWindowModal(popupTypePicture);
 };
-
-//функция добавления модификатора
-export function disabledButtonPopup () {
-  buttonSubmitPopupTypeCardAdd.setAttribute('disabled', true);
-  buttonSubmitPopupTypeCardAdd.classList.add('popup__button_inactive');
-}
-
 
 export const openCardsPopup = function() {
     
