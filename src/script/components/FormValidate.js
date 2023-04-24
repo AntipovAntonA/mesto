@@ -1,4 +1,4 @@
-import {selectors, buttonSubmitPopupTypeCardAdd} from './constants.js'
+import {selectors, buttonSubmitPopupTypeCardAdd} from '../utils/constants.js'
 
 
 export default class FormValidate {

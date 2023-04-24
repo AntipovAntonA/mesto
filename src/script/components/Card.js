@@ -1,13 +1,14 @@
-import {popupTypePicture} from './constants.js'
-import {closePopupByClickEsc} from './utils.js'
-
 export default class Card {
-    constructor (data, cardSelector) {
+    constructor ({data, handleCardClick}, cardSelector) {
             this._data = data;
+            this._handleCardClick = handleCardClick;
             this._cardSelector = cardSelector;
-    }
+        }
         _getElement () {
-            const elementCard = this._cardSelector.content.cloneNode(true).children[0];
+            const elementCard = this._cardSelector
+            .content
+            .cloneNode(true)
+            .children[0];
             return elementCard;
            
         }
@@ -27,8 +28,8 @@ export default class Card {
                 this._handlerDeleteCard()
             });
             this._element.querySelector('.element__img').addEventListener('click', () => {
-                this._largerSizeCard()
-            });
+                 this._handleCardClick();
+            })
         }
 
         _handlerLikeCard () {
@@ -37,11 +38,4 @@ export default class Card {
         _handlerDeleteCard () {
             this._element.remove();
         }
-        _largerSizeCard () {
-            popupTypePicture.classList.add('popup_opened');
-            popupTypePicture.querySelector('.box__image').src = this._element.querySelector('.element__img').src;
-            popupTypePicture.querySelector('.box__signature').textContent = this._element.querySelector('.element__img').alt;
-            document.addEventListener('keydown', closePopupByClickEsc)
-        }
-
     }
