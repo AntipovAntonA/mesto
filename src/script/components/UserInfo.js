@@ -1,14 +1,17 @@
-import {nameProfileEdit, profileAboutEdit, jobInput, nameImput} from '../utils/constants.js'
 export default class UserInfo {
-    constructor (data) {
-        this._data = data;
+    constructor ({nameSelector, aboutSelector}) {
+        this._nameSelector = document.querySelector(nameSelector);
+        this._aboutSelector = document.querySelector(aboutSelector);
     }
     getUserInfo () {
-        nameImput.value = nameProfileEdit.textContent;
-        jobInput.value = profileAboutEdit.textContent;
+        this._userInfoForm = {
+        name: this._nameSelector.textContent,
+        about: this._aboutSelector.textContent
+        }
+        return this._userInfoForm;
     }
-    setUserInfo () {
-        nameProfileEdit.textContent = this._data.name;
-        profileAboutEdit.textContent = this._data.about;
+    setUserInfo (data) {
+        this._nameSelector.textContent = data.name;
+        this._aboutSelector.textContent = data.about;
     }
 }

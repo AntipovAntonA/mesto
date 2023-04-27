@@ -1,11 +1,7 @@
 import './pages/index.css';
 import {popupCards, popupTypeProfile, buttonOpenProfilePopup,
   elements, popupTypePicture, cardsButtonOpen, selectors,
-  editFormModalWindow, cardFormModalWindow, cardSelector, initialCards} from './script/utils/constants.js'
-  import {disabledButtonPopup} from './script/components/FormValidate.js'
-
-// import {openProfilePopup, closePopapTypeProfile, editProfile, closePopupTypePicture,
-//   openCardsPopup, closeCardsPopap} from '../utils/utils.js'
+  editFormModalWindow, cardFormModalWindow, cardSelector, initialCards, jobInput, nameImput} from './script/utils/constants.js'
 
 import PopupWithImage from './script/components/PopupWithImage.js'
 
@@ -21,69 +17,58 @@ import Section from './script/components/Section.js';
 
 import UserInfo from './script/components/UserInfo.js';
 
+const popupImage = new PopupWithImage (popupTypePicture);
+popupImage.setEventListeners();
 
-function createCard (cardItem) {
+const userForm = new UserInfo ({nameSelector: '.profile-info__name', aboutSelector: '.profile-info__about'});
+
+//функция создания новой карточки
+function createCard (item) {
   const card = new Card ({
-    data: cardItem,
+    data: item,
     handleCardClick: () => {
-        const popupImage = new PopupWithImage ({
-          data: cardItem
-        }, popupTypePicture);
-        popupImage.open();
+        popupImage.open({data: item});
       }
-    },
-    cardSelector);
+    }, cardSelector);
       const cardElement = card.generateCard();
-      cardList.setItem(cardElement);
+      return cardElement;
 }
 
+//передаю массив карточек и отрисовываю их на странице
 const cardList = new Section ({
   data: initialCards,
   renderer: (cardItem) => {
-    createCard (cardItem)
+    cardList.setItem(createCard(cardItem));
   },
-},
-elements
-);
+}, elements);
 
 const popupProfile = new PopupWithForm ({
   popupSelector: popupTypeProfile,
   handleFormSubmit: (data) => {
-      const userForm = new UserInfo (data);
-      userForm.setUserInfo();
+      userForm.setUserInfo(data);
   }
 })
-
-popupProfile.generate();
-
+popupProfile.setEventListeners();
 
   const popupForm = new PopupWithForm ({
     popupSelector: popupCards,
     handleFormSubmit: (data) => {
-      createCard (data)
+      cardList.setItem(createCard(data));
     }
   })
+  popupForm.setEventListeners();
 
-  const popupTypeCardElement = popupForm.generate();
-
-  const popupTypeCardRenderer = new Section ({
-    data: []
-    }, '.popup_type_card-add');
-
-  popupTypeCardRenderer.setItem(popupTypeCardElement); 
-
-cardsButtonOpen.addEventListener('click', () => {
+  cardsButtonOpen.addEventListener('click', () => {
     popupForm.open()
-    disabledButtonPopup();
+    cardFormValidator.disabledButtonPopup();
 })
 
 buttonOpenProfilePopup.addEventListener('click', () => {
   popupProfile.open()
-  const inputFormReplace = new UserInfo()
-  inputFormReplace.getUserInfo()
+  const {name, about} = userForm.getUserInfo();
+  nameImput.value = name;
+  jobInput.value = about;
 })
-
-cardList.renderItems();
 
 const editFormValidator = new FormValidate (selectors, editFormModalWindow);
 
@@ -92,3 +77,4 @@ const cardFormValidator = new FormValidate (selectors, cardFormModalWindow);
 editFormValidator.enableValidation();
 
 cardFormValidator.enableValidation();
+cardList.renderItems();

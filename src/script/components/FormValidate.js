@@ -1,6 +1,3 @@
-import {selectors, buttonSubmitPopupTypeCardAdd} from '../utils/constants.js'
-
-
 export default class FormValidate {
     constructor (selectors, formElement) {
         this._formSelector = selectors.formSelector;
@@ -12,7 +9,7 @@ export default class FormValidate {
         this._redLineInputError = selectors.redLineInputError;
         this._formElement = formElement;
     }
-
+    
     _checkImputValidity (inputElementPopup) {
         this._isValid = inputElementPopup.validity.valid;
         this._popupSection = inputElementPopup.closest(this._formSelector);
@@ -29,7 +26,7 @@ export default class FormValidate {
     
     _showInputError (errorElement, errorMessage) {
         errorElement.textContent = errorMessage;
-        errorElement.classList.add(selectors.errorClass);
+        errorElement.classList.add(this._errorClass);
     };
     
     _hideInputError (errorElement) {
@@ -44,49 +41,34 @@ export default class FormValidate {
         inputElementForm.classList.remove(this._redLineInputError);
     }
     
-    
     _hasInvalidInput = (inputList) => {
         return inputList.some((inputElementPopup) => {
           return !inputElementPopup.validity.valid
         })
     };
 
+    disabledButtonPopup () {
+        this._buttonSubmit.setAttribute('disabled', true);
+        this._buttonSubmit.classList.add('popup__button_inactive');  
+    }
+
     _toggleButtonState (inputList, buttonElement) {
     
         if (this._hasInvalidInput(inputList)) {
-            disabledButtonPopup ()
+            this.disabledButtonPopup ()
         } else {
             buttonElement.removeAttribute('disabled')
             buttonElement.classList.remove(this._inactiveButtonClass)
         }
-
     }
-    
-    _setInputList (formElement) {
-        this._inputList = Array.from(formElement.querySelectorAll(this._inputSelector));
-        this._buttonSubmit = formElement.querySelector(this._submitButtonSelector);
-    
+    enableValidation (selectors) {
+        this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
+        this._buttonSubmit = this._formElement.querySelector(this._submitButtonSelector);
         this._inputList.forEach(inputElementPopup => {
         inputElementPopup.addEventListener('input', () => {
             this._checkImputValidity(inputElementPopup)
             this._toggleButtonState(this._inputList, this._buttonSubmit, selectors)
         })
     })
-    }
-    
-    enableValidation (selectors) {
-    
-    const formList = document.querySelectorAll('.popup__container');
-    formList.forEach(formElement => {
-        this._setInputList(formElement, selectors);
-    })
-    }
-
- 
-    
+    }    
 }
-   //функция добавления модификатора
-   export function disabledButtonPopup () {
-    buttonSubmitPopupTypeCardAdd.setAttribute('disabled', true);
-    buttonSubmitPopupTypeCardAdd.classList.add('popup__button_inactive');
-  };
