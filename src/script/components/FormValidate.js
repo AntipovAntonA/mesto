@@ -49,7 +49,7 @@ export default class FormValidate {
 
     disabledButtonPopup () {
         this._buttonSubmit.setAttribute('disabled', true);
-        this._buttonSubmit.classList.add('popup__button_inactive');  
+        this._buttonSubmit.classList.add(this._inactiveButtonClass);  
     }
 
     _toggleButtonState (inputList, buttonElement) {
