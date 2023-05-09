@@ -5,6 +5,16 @@ export const popupTypeProfile = document.querySelector('.popup_type_profile');
 
 export const popupCards = document.querySelector('.popup_type_card-add');
 
+export const popupAvatar = document.querySelector('.popup_update-avatar');
+
+export const buttonSubmitEditAvatar = popupAvatar.querySelector('.popup__button');
+
+export const popupAvatarContainer = popupAvatar.querySelector('.popup__container');
+
+export const popupConfirmCardDelete = document.querySelector('.popup_confirm');
+
+export const buttonUpdateAvatar = document.querySelector('.profile__avatar-container');
+
 export const editFormModalWindow = popupTypeProfile.querySelector('.popup__container');
 
 export const cardFormModalWindow = popupCards.querySelector('.popup__container');
@@ -30,6 +40,8 @@ export const nameProfileEdit = document.querySelector('.profile-info__name');
 
 //находим элемент с информацией о профиле
 export const profileAboutEdit = document.querySelector('.profile-info__about');
+
+export const profileAvatarImage = document.querySelector('.profile__avatar');
 
 //находим инпут для ввода имени профиля
 export const nameImput = document.querySelector('.popup__input_type_name');
@@ -60,39 +72,11 @@ export const cardsButtonClose = popupCards.querySelector('.popup__close');
 export const buttonEsc = 'Escape';
 
 export const selectors = {
-    formSelector: '.popup__section',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__button',
-    inactiveButtonClass: 'popup__button_inactive',
-    inputErrorClass: '.popup__input-error',
-    errorClass: 'popup__input-error_active',
-    redLineInputError: 'popup__input_red-line'
+  formSelector: '.popup__section',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_inactive',
+  inputErrorClass: '.popup__input-error',
+  errorClass: 'popup__input-error_active',
+  redLineInputError: 'popup__input_red-line'
 };
-  
-
-  export const initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-  ];

@@ -1,72 +1,106 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Место</title>
 </head>
+
 <body class="page">
+
     <header class="header">
         <img src="<%=require('./images/logo_mesto.svg')%>" class="header__logo" alt="Логотип">
     </header>
     <main class="content">
-    <section class="profile">
-        <img src= "<%=require('./images/avatar.png')%>" alt="Аватар" class="profile__avatar">
-        <div class="profile__profile-info profile-info">
-            <h1 class="profile-info__name">Жак-Ив Кусто</h1>
-            <button type="button" class="profile-info__edit-button" aria-label="Редактировать профиль"></button>
-            <p class="profile-info__about">Исследователь океана</p>
-        </div>
-        <button type="button" class="profile__add-button" aria-label="Добавить"></button>
-    </section>
-    <ul class="elements">
-        <template class="elements_template">
-            <li class="elements__element element">
-                <img src="#" alt="" class="element__img">
-                <button type="button" aria-label="Удалить" class="element__delete"></button>
-                <div class="element__container-heading heading">
-                    <h2 class="heading__name"></h2>
-                    <button type="button" class="heading__heart" aria-label="Лайк"></button>
-                </div>
-            </li>
-        </template>
-    </ul>
+        <section class="profile">
+            <div class="profile__avatar-container">
+                <img src="#" alt="Аватар" class="profile__avatar avatar-container__avatar">
+            </div>
+            <div class="profile__profile-info profile-info">
+                <h1 class="profile-info__name"></h1>
+                <button type="button" class="profile-info__edit-button" aria-label="Редактировать профиль"></button>
+                <p class="profile-info__about"></p>
+            </div>
+            <button type="button" class="profile__add-button" aria-label="Добавить"></button>
+        </section>
+        <ul class="elements">
+            <template class="elements_template">
+                <li class="elements__element element">
+                    <img src="#" alt="" class="element__img">
+                    <button type="button" aria-label="Удалить" class="element__delete"></button>
+                    <div class="element__container-heading heading">
+                        <h2 class="heading__name"></h2>
+                        <div class="heading__like-container">
+                            <button type="button" class="heading__heart" aria-label="Лайк"></button>
+                            <p class="heading__like-quantity"></p>
+                        </div>
+                    </div>
+                </li>
+            </template>
+        </ul>
     </main>
     <footer class="footer">
         <p class="footer__text">&copy; 2022 Mesto Russia</p>
     </footer>
-    
+
     <div class="popup popup_type_profile">
-        <form action="html/sendform" class="popup__container popup__container_type_profile" name="profile-form" novalidate>
+        <form action="html/sendform" class="popup__container popup__container_type_profile" name="profile-form"
+            novalidate>
             <button type="button" class="popup__close popup__close_type_profile" aria-label="Закрыть"></button>
             <h2 class="popup__heading">Редактировать профиль</h2>
-            <div class = "popup__section">
-                <input id ="profile-name" type="text" name="name" class="popup__input popup__input_type_name" value="" required minlength = 2 maxlength = 40>
+            <div class="popup__section">
+                <input id="profile-name" type="text" name="name" class="popup__input popup__input_type_name" value=""
+                    required minlength=2 maxlength=40>
                 <div class="popup__input-error"></div>
             </div>
-            <div class = "popup__section">
-                <input id ="profile-info" type="text" name="about" class="popup__input popup__input_type_about" value="" required minlength = 2 maxlength = 200>
+            <div class="popup__section">
+                <input id="profile-info" type="text" name="about" class="popup__input popup__input_type_about" value=""
+                    required minlength=2 maxlength=200>
                 <div class="popup__input-error"></div>
             </div>
             <button type="submit" class="popup__button">Сохранить</button>
         </form>
     </div>
-        <!-- Попап добавления новой карточки -->
+    <!-- Попап добавления новой карточки -->
     <div class="popup popup_type_card-add">
-            <form action="html/sendform" class="popup__container popup__container_type_card-add" name="card-form" novalidate>
-                <button type="button" class="popup__close popup__close_type_card-add" aria-label="Закрыть"></button>
-                <h2 class="popup__heading">Новое место</h2>
-                <div class = "popup__section">
-                    <input id ="card-name" placeholder="Название" type="text" name="name" class="popup__input popup__input_type_name" value="" required minlength = 2 maxlength = 30>
-                    <div class="popup__input-error"></div>
-                </div>
-                <div class = "popup__section">
-                    <input id ="card-url" placeholder="Ссылка на картинку" type="url" name="link" class="popup__input popup__input_type_about" value="" required minlength = 2>
-                    <div class="popup__input-error"></div>
-                </div>
-                <button type="submit" class="popup__button">Создать</button>
-            </form>
+        <form action="html/sendform" class="popup__container popup__container_type_card-add" name="card-form"
+            novalidate>
+            <button type="button" class="popup__close popup__close_type_card-add" aria-label="Закрыть"></button>
+            <h2 class="popup__heading">Новое место</h2>
+            <div class="popup__section">
+                <input id="card-name" placeholder="Название" type="text" name="name"
+                    class="popup__input popup__input_type_name" value="" required minlength=2 maxlength=30>
+                <div class="popup__input-error"></div>
+            </div>
+            <div class="popup__section">
+                <input id="card-url" placeholder="Ссылка на картинку" type="url" name="link"
+                    class="popup__input popup__input_type_about" value="" required minlength=2>
+                <div class="popup__input-error"></div>
+            </div>
+            <button type="submit" class="popup__button">Создать</button>
+        </form>
+    </div>
+    <div class="popup popup_update-avatar">
+        <form action="html/sendform" class="popup__container popup__container_update-avatar" name="update-avatar"
+            novalidate>
+            <button type="button" class="popup__close popup__close_update-avatar" aria-label="Закрыть"></button>
+            <h2 class="popup__heading">Обновить аватар</h2>
+            <div class="popup__section">
+                <input id="card-url" placeholder="Ссылка на картинку" type="url" name="link"
+                    class="popup__input popup__input_type_about" value="" required minlength=2>
+                <div class="popup__input-error"></div>
+            </div>
+            <button type="submit" class="popup__button">Сохранить</button>
+        </form>
+    </div>
+    <div class="popup popup_confirm">
+        <form action="html/sendform" class="popup__container popup__container_confirm" name="confirm" novalidate>
+            <button type="button" class="popup__close popup__close_update-avatar" aria-label="Закрыть"></button>
+            <h2 class="popup__heading">Вы уверены?</h2>
+            <button type="submit" class="popup__button">Да</button>
+        </form>
     </div>
     <div class="popup popup_type_picture">
 
@@ -78,5 +112,6 @@
 
     </div>
     <script type="module" src="./script/pages/index.js"></script>
-    </body>
+</body>
+
 </html>
