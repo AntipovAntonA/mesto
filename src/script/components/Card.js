@@ -1,12 +1,12 @@
 export default class Card {
-    constructor({ data, handleCardClick, handleLikeClick, handlerDeleteCard }, cardSelector, userId) {
+    constructor({ data, handleCardClick, handleLikeClick, handleDeleteCard }, cardSelector, userId) {
         this._data = data;
         this.cardId = data._id;
         this._likes = data.likes;
         this._handleCardClick = handleCardClick;
         this._handleLikeClick = handleLikeClick;
-        this._handlerDeleteCard = handlerDeleteCard;
-        this._cardSelector = cardSelector;
+        this._handleDeleteCard = handleDeleteCard;
+        this._cardSelector = document.querySelector(cardSelector);
         this._userId = userId;
         this._owner = data.owner._id;
     }
@@ -32,13 +32,16 @@ export default class Card {
         if (this._owner !== this._userId) {
             this._deleteButton.remove();
         }
+        if (this.isLiked(true)) {
+            this._likeButton.classList.add("heading__heart_activ");
+        }
         this._setEventListeners();
         this._likeCard();
         return this._element;
     }
     _setEventListeners() {
         this._deleteButton.addEventListener('click', () => {
-            this._handlerDeleteCard(this)
+            this._handleDeleteCard(this)
         });
         this._likeButton.addEventListener('click', () => {
             this._handleLikeClick(this)
@@ -57,15 +60,16 @@ export default class Card {
     removeLike() {
         this._likeButton.classList.remove("heading__heart_activ");
     }
-    quantityLikes(data) {
+    countLikes(data) {
         this._quantityLikesCardElement.textContent = data.likes.length;
         this._likes = data.likes;
     }
-
     isLiked() {
         return this._likes.some((item) => item._id === this._userId)
+
     }
-    handlerDeleteCard() {
+    handleDeleteCard() {
         this._element.remove();
+
     }
 }

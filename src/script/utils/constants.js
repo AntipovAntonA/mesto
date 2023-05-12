@@ -1,45 +1,16 @@
-//находим блок popup
-export const windowModal = document.querySelectorAll('.popup');
+export const popupAvatarContainer = document.forms['update-avatar'];
 
-export const popupTypeProfile = document.querySelector('.popup_type_profile');
+export const buttonSubmitEditAvatar = popupAvatarContainer.querySelector('.popup__button');
 
-export const popupCards = document.querySelector('.popup_type_card-add');
-
-export const popupAvatar = document.querySelector('.popup_update-avatar');
-
-export const buttonSubmitEditAvatar = popupAvatar.querySelector('.popup__button');
-
-export const popupAvatarContainer = popupAvatar.querySelector('.popup__container');
-
-export const popupConfirmCardDelete = document.querySelector('.popup_confirm');
+export const popupConfirmCardDelete = document.forms['confirm'];
 
 export const buttonUpdateAvatar = document.querySelector('.profile__avatar-container');
 
-export const editFormModalWindow = popupTypeProfile.querySelector('.popup__container');
+export const editFormModalWindow = document.forms['profile-form'];
 
-export const cardFormModalWindow = popupCards.querySelector('.popup__container');
+export const cardFormModalWindow = document.forms['card-form'];
 
-export const popupTypePicture = document.querySelector('.popup_type_picture');
-
-export const buttonSubmitPopupTypeCardAdd = popupCards.querySelector('.popup__button');
-
-export const buttonSubmitPopupTypeProfile = popupTypeProfile.querySelector('.popup__button');
-
-export const buttonSubmitPopup = document.querySelector('.popup__button');
-
-export const cardSelector = document.querySelector('.elements_template');
-
-//находим кнопку редактирования профиля
 export const buttonOpenProfilePopup = document.querySelector('.profile-info__edit-button');
-
-//находим крестик
-export const buttonClosePopup = document.querySelector('.popup__close_type_profile');
-
-//находим элемент с именем профиля
-export const nameProfileEdit = document.querySelector('.profile-info__name');
-
-//находим элемент с информацией о профиле
-export const profileAboutEdit = document.querySelector('.profile-info__about');
 
 export const profileAvatarImage = document.querySelector('.profile__avatar');
 
@@ -49,25 +20,7 @@ export const nameImput = document.querySelector('.popup__input_type_name');
 //находим инпут для ввода информации о профиле
 export const jobInput = document.querySelector('.popup__input_type_about');
 
-//находим инпут для ввода названия новой карточки
-export const nameImputCardPopap = popupCards.querySelector('.popup__input_type_name');
-
-//находим инпут для ввода ссылки на изображение
-export const linkImputCardPopap = popupCards.querySelector('.popup__input_type_about');
-
-export const formEditProfile = document.querySelector('.popup__container_type_profile');
-//export const elements = document.querySelector('.elements');
-
-export const elements = '.elements';
-
-export const formAddCards = popupCards.querySelector('.popup__container');
-
-export const buttonClosePopupTypePicture = document.querySelector('.box__close');
-//находим кнопку добавления карточки
-
 export const cardsButtonOpen = document.querySelector('.profile__add-button');
-
-export const cardsButtonClose = popupCards.querySelector('.popup__close');
 
 export const buttonEsc = 'Escape';
 

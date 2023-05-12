@@ -41,26 +41,26 @@ export default class FormValidate {
             return !inputElementPopup.validity.valid
         })
     };
-    disabledButtonPopup() {
+    disableButton() {
         this._buttonSubmit.setAttribute('disabled', true);
         this._buttonSubmit.classList.add(this._inactiveButtonClass);
     }
     _toggleButtonState(inputList, buttonElement) {
 
         if (this._hasInvalidInput(inputList)) {
-            this.disabledButtonPopup()
+            this.disableButton()
         } else {
             buttonElement.removeAttribute('disabled')
             buttonElement.classList.remove(this._inactiveButtonClass)
         }
     }
-    enableValidation(selectors) {
+    enableValidation() {
         this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
         this._buttonSubmit = this._formElement.querySelector(this._submitButtonSelector);
         this._inputList.forEach(inputElementPopup => {
             inputElementPopup.addEventListener('input', () => {
                 this._checkImputValidity(inputElementPopup)
-                this._toggleButtonState(this._inputList, this._buttonSubmit, selectors)
+                this._toggleButtonState(this._inputList, this._buttonSubmit)
             })
         })
     }
