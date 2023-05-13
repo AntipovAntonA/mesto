@@ -1,17 +1,17 @@
 export default class Card {
-    constructor({ data, handleCardClick, handleLikeClick, handleDeleteCard }, cardSelector, userId) {
+    constructor({ data, handleCardClick, handleLikeClick, handleDeleteCard }, cardTemplate, userId) {
         this._data = data;
         this.cardId = data._id;
         this._likes = data.likes;
         this._handleCardClick = handleCardClick;
         this._handleLikeClick = handleLikeClick;
         this._handleDeleteCard = handleDeleteCard;
-        this._cardSelector = document.querySelector(cardSelector);
+        this._cardTemplate = document.querySelector(cardTemplate);
         this._userId = userId;
         this._owner = data.owner._id;
     }
     _getElement() {
-        const elementCard = this._cardSelector
+        const elementCard = this._cardTemplate
             .content
             .cloneNode(true)
             .children[0];

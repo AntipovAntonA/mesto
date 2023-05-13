@@ -46,7 +46,7 @@ Promise.all([api.getInfoUser(), api.getInitialCards()])
     console.error(err)
   })
 const popupProfile = new PopupWithForm({
-  popupSelector: '.popup_type_profile',
+  popupElement: '.popup_type_profile',
   handleFormSubmit: (inputs) => {
     
     popupProfile.renderLoading(true);
@@ -88,10 +88,7 @@ function handleLikeClick(card) {
         console.error(err)
     })
   }
-
 }
-
-//const userId = '6d213d054de62ed3b6516bde';
 //функция создания новой карточки
 function createCard(item) {
   const card = new Card({
@@ -111,7 +108,7 @@ const cardList = new Section({
   },
 }, '.elements');
 const popupForm = new PopupWithForm({
-  popupSelector: '.popup_type_card-add',
+  popupElement: '.popup_type_card-add',
   handleFormSubmit: (data) => {
     popupForm.renderLoading(true);
     api.createNewCard(data).then((item) => {
@@ -131,17 +128,16 @@ popupForm.setEventListeners();
 
 cardsButtonOpen.addEventListener('click', () => {
   popupForm.open()
-  //cardFormValidator.resetValidation();
   cardFormValidator.disableButton();
  
 })
 
 const popupUpdateAvatar = new PopupWithForm({
-  popupSelector: '.popup_update-avatar',
+  popupElement: '.popup_update-avatar',
   handleFormSubmit: (link) => {
     popupUpdateAvatar.renderLoading(true);
     api.updateUserAvatar(link).then((data) => {
-      profileAvatarImage.src = data.avatar;
+      userForm.setUserInfo({ data });
       popupUpdateAvatar.close()
     })
     .catch((err) => {
